@@ -1,21 +1,26 @@
-name: C/C++ CI
+name: C++ CI
 
 on:
+  push:
+    branches: [ master ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ master ]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: configure
-      run: ./configure
-    - name: make
-      run: make
-    - name: make check
-      run: make check
-    - name: make distcheck
-      run: make distcheck
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: sudo apt-get install -y g++
+
+    - name: Compile C++ code
+      run: g++ -o main stack.cpp
+
+    - name: Run the program
+      run: ./main
+      # Note: If your program requires user input, you might want to handle this differently in a CI environment.
+      # For automated testing, consider using a testing framework or redirecting input from a file.
