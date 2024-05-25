@@ -33,13 +33,13 @@ void TampilData(){
     if (!isEmpty())
     {
 
-        cout<<"Data Tersimpan "<<endl;
+        cout<<"Data Tersimpan "<endl;
         for (int i = 0; i < top; i++)
         {
             cout<< i + 1<<". "<<dataBuku[i]<<endl;
         }
     } else {
-        cout<<"Data Tersimpan Masih Kosong"<<endl;
+        cout<<"Data Tersimpan Masih Kosong"<endl;
     }
 
     //kondisi jika isi dari array telah penuh 
